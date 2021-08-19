@@ -1,0 +1,111 @@
+<div class="container mt-5">
+  <div class="main-body">
+
+
+    <div class="row gutters-sm">
+      <div class="col-md-4 mb-3">
+        <div class="card">
+          <div class="card-body">
+            <div class="d-flex flex-column align-items-center text-center">
+              <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="Admin" class="rounded-circle"
+                width="150">
+              <div class="mt-3">
+                <h4 class="mera2">{{ userDetails.name|uppercase}}</h4>
+                <p class="text-secondary mb-1 mera">Full Stack Developer</p>
+                <p class="text-muted font-size-sm mera">Bay Area, San Francisco, CA</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-8">
+        <div class="card mb-3">
+          <div class="card-body">
+            <div class="row">
+              <div class="col-sm-3">
+                <h6 class="mb-0 mera">Full Name</h6>
+              </div>
+              <div class="col-sm-9 text-secondary mera">
+                {{userDetails.name}}
+              </div>
+            </div>
+            <hr>
+            <div class="row">
+              <div class="col-sm-3">
+                <h6 class="mb-0 mera">User Name</h6>
+              </div>
+              <div class="col-sm-9 text-secondary mera">
+                {{userDetails.userName}}
+              </div>
+            </div>
+            <hr>
+            <div class="row">
+              <div class="col-sm-3">
+                <h6 class="mb-0 mera">Email</h6>
+              </div>
+              <div class="col-sm-9 text-secondary mera">
+                {{userDetails.email}}
+              </div>
+            </div>
+            <hr>
+            <div class="row">
+              <div class="col-sm-3">
+                <h6 class="mb-0 mera">Phone</h6>
+              </div>
+              <div class="col-sm-9 text-secondary mera">
+                {{userDetails.phoneNo}}
+              </div>
+            </div>
+
+
+  
+            <div class="row mt-2">
+              <div class="col-sm-12">
+                <a class="btn btn-info mera" data-bs-toggle="modal" data-bs-target="#exampleModal" (click)="getDetails()">Edit</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title mera3" id="exampleModalLabel">Edit Profile</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <form [formGroup]="editProfile" (ngSubmit)="updateProfile()">
+              <div class="mb-3">
+                <label class="form-label mera2">NAME</label>
+                <input type="text" class="form-control mera" formControlName="name" >
+
+              </div>
+
+              <div class="mb-3">
+                <label class="form-label mera2">USERNAME</label>
+                <input type="text" class="form-control  mera" formControlName="userName">
+
+              </div>
+              <div class="mb-3">
+                <label class="form-label mera2">PHONE NO</label>
+                <input type="number" class="form-control  mera" formControlName="phoneNo" >
+
+              </div>
+              <div class="mb-3">
+                <label class="form-label mera2">EMAIL</label>
+                <input type="email" class="form-control  mera" formControlName="email" >
+
+
+              </div>
+
+              <button type="submit" class="btn btn-primary" data-bs-dismiss="modal" >update</button>
+
+            </form>
+          </div>
+
+        </div>
+      </div>
+    </div>

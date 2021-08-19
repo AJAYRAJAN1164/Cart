@@ -1,0 +1,40 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-dark ">
+    <div class="container-fluid">
+      <a *ngIf="isAdmin; else user"  class="navbar-brand text-white" routerLink="/admin-dashboard">{{role |uppercase}} DASHBOARD</a>
+      <ng-template #user>
+        <a class="navbar-brand text-white" routerLink="/user-dashboard">Shop Bazar</a>
+      </ng-template>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ">
+          <li class="nav-item" *ngIf="isAdmin">
+            <a class="nav-link active text-white" aria-current="page" routerLink="/add-products" routerLinkActive="active" class="navbar-brand text-white" >Add-product</a>
+          </li>
+        </ul>
+          <ul class="navbar-nav adipoly"> 
+            <div *ngIf="!isAdmin" class="etho">
+              <p class="text-white m-0">Wishlist<span><i class="fas fa-heartbeat"></i></span></p>
+            </div> 
+            <div class="dropdown">
+                <button class="btn btn-secondary dropdown-toggle bg-dark nav-btn" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                    <i class="fas fa-user text-white my-auto" >
+                      <span class="wow" *ngIf="isAdmin; else isUser">{{role | uppercase}} </span>
+                      <span>
+                        <ng-template #isUser > <span class="wow" >{{userName | uppercase}} </span></ng-template>
+                      </span>
+                    
+                    </i>
+                </button>
+                <ul class="dropdown-menu bg-dark" aria-labelledby="dropdownMenuButton1">
+                  <li><a class="dropdown-item" href="#">Welcome</a></li>
+                  <li><a class="dropdown-item" *ngIf="!isAdmin;"   routerLink="/profile">Profile</a></li>
+                  <li> <a class="dropdown-item text-white " routerLink="/logout" routerLinkActive="active" (click)="authService.logoutUser()" >Signout</a></li>
+                </ul>
+              </div>                    
+          </ul>
+      </div>
+    </div>
+  </nav>
+<router-outlet></router-outlet>

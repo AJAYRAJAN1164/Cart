@@ -1,0 +1,44 @@
+<app-header></app-header>
+<h1 class="edit">EDIT PRODUCTS</h1>
+<div *ngIf="alert" class="alert alert-success alert-dismissible fade show" role="alert">
+    <strong>Sucess !</strong> Your data has been updated successfully 
+    <button type="button" (click)="closeAlert()" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  </div>
+
+
+<form [formGroup]="editProducts" (ngSubmit)="update()">
+    <div class="mb-3">
+      <label class="form-label">PRODUCT NAME</label>
+      <input type="text" class="form-control" formControlName="name" placeholder="Product name">
+      <div *ngIf="f.name.invalid && f.name.touched " class="error">
+        <div *ngIf="f.name.errors?.required">Name is required</div>
+    </div>
+    </div>
+    
+    <div class="mb-3">
+        <label class="form-label">CATEGORY</label>
+        <input type="email" class="form-control" formControlName="category" placeholder="Enter Category">
+        <div *ngIf="f.category.invalid && f.category.touched " class="error">
+          <div *ngIf="f.category.errors?.required">Email is required</div>
+      </div>
+      </div>
+      <div class="mb-3">
+        <label class="form-label">PRICE</label>
+        <input type="email" class="form-control" formControlName="price" placeholder="Enter Price">
+        <div *ngIf="f.price.invalid && f.price.touched " class="error">
+          <div *ngIf="f.price.errors?.required">Price is required</div>
+      </div>
+      </div>
+      <div class="mb-3">
+        <label class="form-label">DESCRIPTION</label>
+        <input type="text" class="form-control" formControlName="description" placeholder="Enter Description">
+        <div *ngIf="f.description.invalid && f.description.touched " class="error">
+          <div *ngIf="f.description.errors?.required">Description is required</div>
+      </div>
+      
+      </div>
+
+    <button type="submit" class="btn btn-primary" [disabled]="!editProducts.valid">update</button>
+    <button type="button" (click)="reset()" class="btn btn-danger mx-2">reset</button>
+  </form>
+

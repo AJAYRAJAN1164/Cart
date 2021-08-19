@@ -1,0 +1,96 @@
+
+<div class="row mt-5" *ngIf="!isAdmin;else admin">
+    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-3 mb-3 p-0" *ngFor="let product of products">
+        <div class="card  mx-5 my-2">
+            <div class="card-body">
+                <div class="image">
+                    <img [src]="myImg" alt="bike">
+                </div>
+                <h5 class="card-title mt-3">{{product.name |uppercase}}</h5>
+                <div style="text-align:left"><i class="fas fa-star"  style="color: orange; "></i> <i class="fas fa-star"  style="color: orange; "></i> <i class="fas fa-star"  style="color: orange; "></i> <i class="fas fa-star"  style="color: orange; "></i></div>
+                <p class="card-text">
+                    {{product.description |uppercase}}
+                </p>
+                <p class="card-text">
+                     {{product.category |uppercase}}
+                </p>
+                <hr>
+                <p class="card-text money">
+                    {{product.price|currency:'CAD'}} 
+                </p>
+                <a href="" class="btn btn-primary underfive mt-2" data-bs-toggle="modal" style="border-radius: 30%; font-weight: bolder;" data-bs-target="#exampleModal" (click)="openUp(product._id)" >Buy product</a>
+                <a  class="btn btn-success underfive  mt-2" style="background-color: #878e8b; border-radius:30%; font-weight: bolder;" (click)="success()">Add to Wishlist</a>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+</div>
+
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title ccn" id="exampleModalLabel" ><i class="fas fa-check-circle text-success mx-2"></i>Place Your Order</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="row">
+            <div class="col-md-4">
+              <div class="modal-img">
+                <img [src]="myImg" alt="card-img">
+              </div>
+            </div>
+            <div class="col-md-8">
+              <p class="css"><strong >NAME:</strong><br>{{dummy.name | uppercase}}</p>
+              <p class="css"><strong >CATEGORY:</strong><br>{{dummy.category | uppercase}}</p>
+              <p class="css"><strong>PRICE:</strong><br>{{dummy.price |uppercase |currency:'CAD'}}</p>
+            </div>
+          </div>
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary" data-bs-dismiss="modal" (click)="showToastr()">Confirm</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+
+<ng-template #admin>
+  
+    <h1 class="hie">Product Listing</h1>
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">ID</th>
+            <th scope="col">PRODUCT NAME</th>
+            <th scope="col">PRODUCT DESCRIPTION</th>
+            <th scope="col">PRODUCT CATEGORY</th>
+            <th scope="col">PRODUCT PRICE</th>
+            <th scope="col">OPERATIONS</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of products;">
+            <th>{{item._id}}</th>
+            <th>{{item.name}}</th>
+            <th>{{item.description}}</th>
+            <th>{{item.category}}</th>
+            <th>{{item.price |  currency:'CAD'}}</th>
+            <th> <button type="button" class="btn" (click)="deleteResto(item._id)"><i class="fas fa-trash" style="font-size: large; color: red;"></i></button>
+               <a routerLink="/edit-products/{{item._id}}">
+                <i class="fas fa-edit mx-2" style="font-size: large; color:blue;"></i>
+               </a>
+            
+            </th>
+        </tr>
+        </tbody>
+      </table>
+    
+
+</ng-template>

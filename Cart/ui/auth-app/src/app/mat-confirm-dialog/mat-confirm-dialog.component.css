@@ -1,0 +1,33 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@1,100&display=swap");
+
+
+.content-container{
+    display: flex;
+    justify-content: space-between;
+}
+
+.box{
+    background-color: black;
+    margin: 0 auto !important;
+    position: absolute;
+    top: 10%;
+    left:30%;
+    width: 30%;
+    border-radius: 20px;
+    padding: 10px;
+    font-size: 20px;
+    
+}
+
+.content-span{
+    font-family: Lato;
+}
+
+.txt-end{
+   background: none;
+   color: white;
+}
+
+.haha{
+    font-family: Lato;
+}

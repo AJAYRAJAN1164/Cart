@@ -1,0 +1,46 @@
+<div class="row mt-5 pie">
+    <div class="col-md-6 mx-auto">
+        <div class="card rounded-0">
+            <div class="card-header bg-dark">
+                <h3 class="mb-0 header  text-white">
+                   SIGN IN
+                </h3>
+            </div>
+            <div class="card-body">
+                <form [formGroup]="login" (ngSubmit)="loginUser()">
+
+                    <div class="form-group">
+                     
+                        <input type="text" class="form-control rounded-0" formControlName="email"  placeholder="email" [class.is-invalid]="f.email.invalid && f.email.touched" > 
+                        <div *ngIf="f.email.invalid && f.email.touched " class="error">
+                            <div *ngIf="f.email.errors?.required">Email is required</div>
+                            <div *ngIf="f.email.errors?.email">Email must be a valid email address</div>
+
+                        </div>
+                    </div>
+                 
+                    
+                    <div class="form-group">
+                       
+                        <input type="password" class="form-control rounded-0" formControlName="password"  placeholder="password"  [class.is-invalid]="f.password.invalid && f.password.touched" > 
+                        <div *ngIf="f.password.invalid &&  f.password.touched" class="error">
+                            <div *ngIf="f.password.errors?.required">password is required</div>
+                            <div *ngIf="f.password.errors?.minlength">password must contain atleast 6 digits </div>
+                        </div>
+                    </div>
+                    <div *ngIf=" errorBol" class=" form-group text-white eb px-2 bg-danger">{{error}}</div>
+                    <div class="form-group px-2">
+                        <a routerLink="/register" class="login" >'Dont Have an account? Signup'</a>
+                    </div>
+                   
+                    <div class="text-center">
+                        <button type="submit"  class="btn bg-dark  mt-3 hai" [disabled]="!login.valid">Log In</button><br>
+                        <button type="button"  class="btn btn-danger  mt-3 hai" (click)="reset()">Reset</button>
+                    </div>
+                    
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+

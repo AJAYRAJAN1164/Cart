@@ -1,0 +1,95 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@1,700&display=swap');
+
+.image{
+    width: 100%;
+    height: 300px;
+}
+
+.image img{
+    width: 100%;
+    height: 100%;
+}
+.variety{
+    margin-top:10px;
+    list-style: none;
+    display: flex;
+   
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.variety li{
+    margin:5px 20px;
+    flex-grow:1;
+}
+
+.card{
+    
+    max-width: 280px;
+    height: auto;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+       
+}
+
+.card-title,.card-text{
+    font-size: 16px;
+    font-weight: 900;
+    line-height: 1;
+    color: #535766;
+    margin: 5px;
+    overflow: hidden;
+    white-space: nowrap;
+    font-family: Lato;
+    text-align: left;
+}
+.card-title{
+    color: #000000;
+    text-transform: uppercase;
+    font-size: 20   px;
+}
+.card-text:nth-child(5){
+    color:  #198754;
+}
+
+.underfive{
+ font-family: Lato;
+ border: none;
+ font-size: 15px;
+ margin:5px 2px;
+}
+
+.table thead tr th{
+    padding:5px;
+    font-family: Lato;
+    font-weight: bolder;
+    color: black;
+
+}
+
+.table tbody tr th{
+    padding-left:5px;
+    font-family: Lato;
+    font-weight: 600;
+}
+.hie{
+    padding-left:5px;
+    font-family: Lato;
+    font-weight: bolder;
+    margin: 10px;
+}
+.ccn{
+    font-family: Lato;
+    font-weight: 600;
+
+}
+.modal-img{
+    width: 100%;
+    height: auto;
+}
+
+.modal-img img{
+    width:100%;
+    height:100%;
+}
+.money{
+    color:#ff4162;
+}

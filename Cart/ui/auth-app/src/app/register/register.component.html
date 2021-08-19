@@ -1,0 +1,73 @@
+<div class="row pt-5">
+    <div class="col-md-6 mx-auto">
+        <div class="card rounded-0">
+            <div class="card-header bg-dark">
+                <h3 class="mb-0 header  text-white">
+                    REGISTER 
+                </h3>
+            </div>
+            <div class="card-body">
+                <form [formGroup]="register" (ngSubmit)="registerUser()">
+                    <div class="form-group" >
+                    
+                        <input type="text" class="form-control rounded-0"  formControlName="name"  placeholder="name" [class.is-invalid]="f.name.invalid && f.name.touched" > 
+                        <div *ngIf="f.name.errors" class="error">
+                            <div *ngIf="f.name.errors.required && f.name.touched"> name is required</div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                   
+                        <input type="text" class="form-control rounded-0"  formControlName="userName" placeholder="username" [class.is-invalid]="f.userName.invalid && f.userName.touched">
+                        <div *ngIf="f.userName.invalid && f.userName.touched" class="error" >
+                            <div *ngIf="f.userName.errors?.required">user Name is required</div>
+                            <div *ngIf="f.userName.errors?.minlength">must contain 4 digit</div>
+                        </div> 
+                    </div>
+                    <div class="form-group" >
+                       
+                        <input type="text" class="form-control rounded-0"  formControlName="phoneNo"  placeholder="phone no"  [class.is-invalid]="f.phoneNo.invalid && f.phoneNo.touched"> 
+                        <div *ngIf="f.phoneNo.invalid && f.phoneNo.touched" class="error" >
+                            <div *ngIf="f.phoneNo.errors?.required" class="text-danger">Phone Number is required</div>
+                            <div *ngIf="f.phoneNo.errors?.minlength"  class="text-danger">number must be 10 digits</div>
+                            <div *ngIf="f.phoneNo.errors?.pattern"  class="text-danger">must contain a valid number</div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                     
+                        <input type="text" class="form-control rounded-0" formControlName="email"  placeholder="email" [class.is-invalid]="f.email.invalid && f.email.touched" > 
+                        <div *ngIf="f.email.invalid && f.email.touched " class="error">
+                            <div *ngIf="f.email.errors?.required">Email is required</div>
+                            <div *ngIf="f.email.errors?.email">Email must be a valid email address</div>
+
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                       
+                        <input type="password" class="form-control rounded-0" formControlName="password"  placeholder="password"  [class.is-invalid]="f.password.invalid && f.password.touched" > 
+                        <div *ngIf="f.password.invalid &&  f.password.touched" class="error">
+                            <div *ngIf="f.password.errors?.required">password is required</div>
+                            <div *ngIf="f.password.errors?.minlength">password must contain atleast 6 digits </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                    
+                        <input type="password" class="form-control rounded-0" formControlName="confirmPassword"  placeholder="confirm password"  [class.is-invalid]="f.confirmPassword.invalid && f.confirmPassword.touched" >
+                        <div *ngIf="f.confirmPassword.invalid && f.confirmPassword.touched" class="error">
+                            <div *ngIf="f.confirmPassword.errors?.required">Confirm Password is required</div>
+                            <div *ngIf="f.confirmPassword.errors?.mustMatch"> Password doesnt match</div>
+                        </div> 
+                    </div>
+                    <div class="form-group px-2">
+                        <a routerLink="/login" class="login">'Have an account? Log in'</a>
+                    </div>
+                    <div class="text-center">
+                        <button type="submit"  class="btn bg-dark  mt-3 hai" [disabled]="!register.valid">Register</button><br>
+                        <button type="button"  class="btn btn-danger  mt-3 hai" (click)="reset()">Reset</button>
+                    </div>
+              
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
